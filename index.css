@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header CSS copy for each page until allowed JS for a component based header */
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px;
+}
+.nav-links {
+    display: flex;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.brand img {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+.menu-button {
+    display: none;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    border-radius: 0;
+}
+@media (max-width: 600px) {
+    .nav-links {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
+}
+
+hr {
+    margin: 0;
+}
+
+/* Main */
+

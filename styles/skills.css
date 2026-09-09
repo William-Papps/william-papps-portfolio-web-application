@@ -1,3 +1,5 @@
+@import url("/global-css/colours.css");
+
 * {
   box-sizing: border-box;
 }
@@ -6,6 +8,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
 }
 
 main > *:not(hr) {
@@ -19,12 +23,12 @@ main > *:not(hr) {
   justify-content: space-between;
   align-items: center;
   padding: 15px 15px;
-  background-color: white;
+  background-color: var(--background);
   width: 100%;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px var(--border);
 }
 
 .nav-links {
@@ -36,7 +40,7 @@ main > *:not(hr) {
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: black;
+  color: var(--text);
 }
 
 .brand img {
@@ -50,9 +54,16 @@ main > *:not(hr) {
   height: 40px;
   font-size: 20px;
   text-align: center;
-  color: black;
+  color: var(--text);
   border-radius: 0;
+  background-color: var(--background);
+  border-color: var(--primary);
 }
+
+.menu-button svg {
+  fill: currentColor;
+}
+
 @media (max-width: 600px) {
   .nav-links {
     display: none;
@@ -66,22 +77,23 @@ main > *:not(hr) {
 hr {
   margin: 0;
   padding: 0;
+  border-color: var(--border);
 }
 
 /* Main */
 
 .section-header {
   padding: 10px;
-  color: #cfcfcf;
+  color: var(--primary);
 }
 
 /* Hero Section */
 
 .view-projects {
   display: block;
-  background-color: black;
+  background-color: var(--primary);
   text-decoration: none;
-  color: white;
+  color: var(--surface);
   padding: 10px 10px;
   margin: 0 10px;
   margin-bottom: 1vh;
@@ -89,10 +101,10 @@ hr {
 
 .contact-me {
   display: block;
-  background-color: white;
-  color: black;
+  background-color: var(--surface-alt);
+  color: var(--primary);
   text-decoration: none;
-  border: solid 1px black;
+  border: solid 1px var(--primary);
   padding: 10px 10px;
   margin: 0 10px;
   margin-bottom: 1vh;
@@ -110,10 +122,10 @@ hr {
 }
 .skills-tag {
   display: inline-block;
-  background-color: white;
-  color: grey;
+  background-color: var(--background);
+  color: var(--muted-text);
   text-decoration: none;
-  border: solid 1px black;
+  border: solid 1px transparent;
   padding: 6px 12px;
   margin: 4px;
   font-size: 14px;
@@ -122,7 +134,8 @@ hr {
 .skills-card {
   display: block;
   margin: 10px;
-  border: solid 1px black;
+  border: solid 1px var(--border);
+  background-color: var(--surface-alt);
   margin-bottom: 30px;
 }
 
@@ -132,10 +145,10 @@ hr {
 
 .skills-nav {
   display: block;
-  background-color: white;
-  color: black;
+  background-color: var(--primary);
+  color: var(--surface);
   text-decoration: none;
-  border: solid 1px black;
+  border: solid 1px var(--primary);
   padding: 10px 10px;
   margin: 0 10px;
   margin-bottom: 1vh;
@@ -143,13 +156,18 @@ hr {
 
 /* Footer Section */
 
+footer {
+  background-color: var(--text);
+  color: var(--surface);
+}
+
 .footer-nav {
   display: inline-block;
-  background-color: white;
-  color: black;
+  background-color: var(--text);
+  color: var(--surface);
   width: 27vw;
   text-decoration: none;
-  border: solid 1px black;
+  border: solid 1px var(--surface);
   padding: 10px 10px;
   margin: 0 10px;
   margin-bottom: 1vh;
@@ -163,17 +181,21 @@ hr {
   transform: translateY(2px);
 }
 
+.indent-margin {
+  margin-left: 2vw;
+}
+
 @media (min-width: 600px) {
   /* Header */
   header a {
     text-decoration: none;
-    color: black;
+    color: var(--text);
     padding: 10px;
     margin-left: 1vw;
   }
 
   .home-button {
-    border-bottom: solid 3px black;
+    border-bottom: solid 3px var(--primary);
   }
 
   /* Hero */
@@ -182,7 +204,7 @@ hr {
     justify-content: space-between;
     align-items: flex-start;
     gap: 50px;
-    min-height: 60vh;
+    min-height: auto;
     padding-bottom: 30px;
   }
 
@@ -190,7 +212,8 @@ hr {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 55%;
+    width: 100%;
+    max-width: 700px;
     align-items: start;
   }
 
@@ -215,24 +238,43 @@ hr {
     width: 35%;
     max-width: 400px;
     height: auto;
-    border: solid 1px black;
+    border: solid 1px var(--border);
     margin-right: 3vw;
     align-self: center;
   }
 
   /* Currently learning */
 
+  #currently-learning {
+    padding: 25px 30p;
+  }
+
+  #currently-learning ul {
+    padding-left: 20px;
+    line-height: 1.8;
+  }
+
   /* Skills */
+
+  #skills {
+    padding: 25px 30px;
+  }
+
+  .section-header {
+    padding: 0;
+    margin-bottom: 20px;
+  }
 
   .skills-cards {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
   }
 
   .skills-card {
-    display: block;
-    width: 23%;
-    margin: 10px 1vw 30px;
+    flex: 1 1 300px;
+    margin: 0;
+    padding: 15px;
   }
 
   .skills-h2 {
@@ -247,20 +289,31 @@ hr {
     margin-left: 2vw;
   }
 
-  .skills-tag {
-    width: auto;
-    padding: 0 10px;
-    margin: 10px 10px 10px 0;
+  .indent-margin,
+  .indent-further {
+    margin-left: 0;
   }
 
-  .skills-tag:first-of-type {
-    margin-left: 2vw;
+  .skills-tags {
+    padding: 0;
+  }
+
+  .skills-card hr {
+    margin: 0 0 10px;
+  }
+
+  .skills-tag {
+    padding: 6px 10px;
+    margin: 5px 5px 0 0;
   }
 
   /* Footer */
   footer {
     display: flex;
     align-items: center;
+    padding: 20px;
+    gap: 15px;
+    flex-wrap: wrap;
   }
 
   footer nav {
@@ -274,7 +327,6 @@ hr {
   }
 
   .footer-h2 {
-    margin: 0 10 0 10;
-    margin-left: 1vw;
+    margin: 0 10px;
   }
 }

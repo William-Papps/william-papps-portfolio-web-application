@@ -1,3 +1,5 @@
+@import url("/global-css/colours.css");
+
 * {
   box-sizing: border-box;
 }
@@ -6,6 +8,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
 }
 
 main > *:not(hr) {
@@ -19,12 +23,12 @@ main > *:not(hr) {
   justify-content: space-between;
   align-items: center;
   padding: 15px 15px;
-  background-color: white;
+  background-color: var(--background);
   width: 100%;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px var(--border);
 }
 
 .nav-links {
@@ -36,7 +40,7 @@ main > *:not(hr) {
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: black;
+  color: var(--text);
 }
 
 .brand img {
@@ -50,8 +54,14 @@ main > *:not(hr) {
   height: 40px;
   font-size: 20px;
   text-align: center;
-  color: black;
+  color: var(--text);
   border-radius: 0;
+  background-color: var(--background);
+  border-color: var(--primary);
+}
+
+.menu-button svg {
+  fill: currentColor;
 }
 @media (max-width: 600px) {
   .nav-links {
@@ -66,26 +76,27 @@ main > *:not(hr) {
 hr {
   margin: 0;
   padding: 0;
+  border-color: var(--border);
 }
 
 /* Main */
 
 .contact-icon svg {
-  color: black;
+  color: var(--primary);
 }
 
 .section-header {
   padding: 10px;
-  color: #cfcfcf;
+  color: var(--primary);
 }
 
 /* Hero Section */
 
 .view-projects {
   display: block;
-  background-color: black;
+  background-color: var(--primary);
   text-decoration: none;
-  color: white;
+  color: var(--surface);
   padding: 10px 10px;
   margin: 0 10px;
   margin-bottom: 1vh;
@@ -100,7 +111,7 @@ hr {
 /* Contact me */
 .contact-article {
   padding: 15px 0;
-  border-bottom: solid 1px grey;
+  border-bottom: solid 1px var(--border);
 }
 
 .contact-icon {
@@ -131,11 +142,11 @@ hr {
 .contact-name {
   margin: 0 0 5px;
   font-size: 11px;
-  color: grey;
+  color: var(--muted-text);
 }
 
 .contact-article a {
-  color: black;
+  color: var(--primary);
   text-decoration: none;
   font-size: 13px;
   overflow-wrap: anywhere;
@@ -152,14 +163,16 @@ hr {
 }
 
 .contact-form {
-  border: solid 1px grey;
+  border: solid 1px var(--border);
   padding: 15px;
+  background-color: var(--surface-alt);
 }
 
 .contact-form label {
   display: block;
   margin-bottom: 5px;
   font-size: 11px;
+  color: var(--text);
 }
 
 .contact-form input,
@@ -168,11 +181,12 @@ hr {
   width: 100%;
   padding: 8px;
   margin-bottom: 15px;
-  border: solid 1px grey;
+  border: solid 1px var(--muted-text);
   border-radius: 0;
-  background-color: whitesmoke;
+  background-color: var(--background);
   font-family: Arial, sans-serif;
   font-size: 16px;
+  color: var(--text);
 }
 
 .contact-form textarea {
@@ -182,21 +196,26 @@ hr {
 .contact-form button {
   width: 100%;
   padding: 10px;
-  border: solid 1px black;
+  border: solid 1px var(--primary);
   border-radius: 0;
-  background-color: black;
-  color: white;
+  background-color: var(--primary);
+  color: var(--surface);
 }
 
 /* Footer Section */
 
+footer {
+  background-color: var(--text);
+  color: var(--surface);
+}
+
 .footer-nav {
   display: inline-block;
-  background-color: white;
-  color: black;
+  background-color: var(--text);
+  color: var(--surface);
   width: 27vw;
   text-decoration: none;
-  border: solid 1px black;
+  border: solid 1px var(--surface);
   padding: 10px 10px;
   margin: 0 10px;
   margin-bottom: 1vh;
@@ -214,13 +233,13 @@ hr {
   /* Header */
   header a {
     text-decoration: none;
-    color: black;
+    color: var(--text);
     padding: 10px;
     margin-left: 1vw;
   }
 
   .home-button {
-    border-bottom: solid 3px black;
+    border-bottom: solid 3px var(--primary);
   }
 
   /* Hero */
@@ -262,7 +281,7 @@ hr {
     width: 35%;
     max-width: 400px;
     height: auto;
-    border: solid 1px black;
+    border: solid 1px var(--border);
     margin-right: 3vw;
     align-self: center;
   }
@@ -270,7 +289,7 @@ hr {
 
   .contact-heading {
     padding: 20px 10px;
-    border-bottom: solid 1px grey;
+    border-bottom: solid 1px var(--border);
   }
   .contact-me {
     display: inline-block;

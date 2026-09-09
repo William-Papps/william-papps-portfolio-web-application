@@ -1,3 +1,5 @@
+@import url("/global-css/colours.css");
+
 * {
   box-sizing: border-box;
 }
@@ -6,6 +8,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
 }
 
 main > *:not(hr) {
@@ -19,12 +23,12 @@ main > *:not(hr) {
   justify-content: space-between;
   align-items: center;
   padding: 15px 15px;
-  background-color: white;
+  background-color: var(--background);
   width: 100%;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px var(--border);
 }
 
 .nav-links {
@@ -36,7 +40,7 @@ main > *:not(hr) {
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: black;
+  color: var(--text);
 }
 
 .brand img {
@@ -50,8 +54,14 @@ main > *:not(hr) {
   height: 40px;
   font-size: 20px;
   text-align: center;
-  color: black;
+  color: var(--text);
   border-radius: 0;
+  background-color: var(--background);
+  border-color: var(--primary);
+}
+
+.menu-button svg {
+  fill: currentColor;
 }
 @media (max-width: 600px) {
   .nav-links {
@@ -66,22 +76,23 @@ main > *:not(hr) {
 hr {
   margin: 0;
   padding: 0;
+  border-color: var(--border);
 }
 
 /* Main */
 
 .section-header {
   padding: 10px;
-  color: #cfcfcf;
+  color: var(--primary);
 }
 
 /* Hero Section */
 
 .view-projects {
   display: block;
-  background-color: black;
+  background-color: var(--primary);
   text-decoration: none;
-  color: white;
+  color: var(--surface);
   padding: 10px 10px;
   margin: 0 10px;
   margin-bottom: 1vh;
@@ -89,10 +100,10 @@ hr {
 
 .contact-me {
   display: block;
-  background-color: white;
-  color: black;
+  background-color: var(--surface-alt);
+  color: var(--primary);
   text-decoration: none;
-  border: solid 1px black;
+  border: solid 1px var(--primary);
   padding: 10px 10px;
   margin: 0 10px;
   margin-bottom: 1vh;
@@ -108,10 +119,10 @@ hr {
 
 .about-me {
   display: block;
-  background-color: white;
-  color: black;
+  background-color: var(--surface-alt);
+  color: var(--primary);
   text-decoration: none;
-  border: solid 1px black;
+  border: solid 1px var(--primary);
   padding: 10px 10px;
   margin-bottom: 2vh;
 }
@@ -124,8 +135,9 @@ hr {
 .project-card {
   display: block;
   margin: 10px;
-  border: solid 1px black;
+  border: solid 1px var(--border);
   margin-bottom: 30px;
+  background-color: var(--surface-alt);
 }
 
 .project-card hr {
@@ -144,30 +156,32 @@ img {
 
 .view-project-card {
   display: inline-block;
-  background-color: white;
-  color: black;
+  background-color: var(--primary);
+  color: var(--surface);
   text-decoration: none;
-  border: solid 1px black;
+  border: solid 1px var(--primary);
   padding: 1vh 2vw;
   margin: 1vh 2vw;
 }
 
 .project-tag {
   display: inline-block;
-  background-color: white;
-  color: grey;
+  background-color: var(--background);
+  color: var(--primary);
   text-decoration: none;
-  border: solid 1px black;
+  border: solid 1px var(--border);
+  border-color: transparent;
+  border-radius: 6px;
   padding: 1vh 2vw;
   margin: 1vh 2vw;
 }
 
 .projects-nav {
   display: block;
-  background-color: white;
-  color: black;
+  background-color: var(--primary);
+  color: var(--surface);
   text-decoration: none;
-  border: solid 1px black;
+  border: solid 1px var(--primary);
   padding: 10px 10px;
   margin: 0 10px;
   margin-bottom: 1vh;
@@ -177,10 +191,12 @@ img {
 
 .skills-tag {
   display: inline-block;
-  background-color: white;
-  color: grey;
+  background-color: var(--background);
+  color: var(--primary);
   text-decoration: none;
-  border: solid 1px black;
+  border: solid 1px var(--border);
+  border-color: transparent;
+  border-radius: 6px;
   padding: 1vh 2vw;
   margin: 1vh 2vw;
 }
@@ -188,8 +204,9 @@ img {
 .skills-card {
   display: block;
   margin: 10px;
-  border: solid 1px black;
+  border: solid 1px var(--border);
   margin-bottom: 30px;
+  background-color: var(--surface-alt);
 }
 
 .skills-card hr {
@@ -198,10 +215,10 @@ img {
 
 .skills-nav {
   display: block;
-  background-color: white;
-  color: black;
+  background-color: var(--primary);
+  color: var(--surface);
   text-decoration: none;
-  border: solid 1px black;
+  border: solid 1px var(--primary);
   padding: 10px 10px;
   margin: 0 10px;
   margin-bottom: 1vh;
@@ -209,13 +226,18 @@ img {
 
 /* Footer Section */
 
+footer {
+  background-color: var(--text);
+  color: var(--surface);
+}
+
 .footer-nav {
   display: inline-block;
-  background-color: white;
-  color: black;
+  background-color: var(--text);
+  color: var(--surface);
   width: 27vw;
   text-decoration: none;
-  border: solid 1px black;
+  border: solid 1px var(--surface);
   padding: 10px 10px;
   margin: 0 10px;
   margin-bottom: 1vh;
@@ -233,13 +255,13 @@ img {
   /* Header */
   header a {
     text-decoration: none;
-    color: black;
+    color: var(--text);
     padding: 10px;
     margin-left: 1vw;
   }
 
   .home-button {
-    border-bottom: solid 3px black;
+    border-bottom: solid 3px var(--primary);
   }
 
   /* Hero */
@@ -281,7 +303,7 @@ img {
     width: 35%;
     max-width: 400px;
     height: auto;
-    border: solid 1px black;
+    border: solid 1px var(--border);
     margin-right: 3vw;
     align-self: center;
   }

@@ -130,6 +130,12 @@ hr {
   display: none;
 }
 
+.project-card img {
+  padding: 10px;
+  border: solid 5px var(--border);
+  background-color: var(--border);
+}
+
 .filter-nav nav {
   display: flex;
   flex-wrap: wrap;

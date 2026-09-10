@@ -1,5 +1,7 @@
 @import url("/global-css/colours.css");
 @import url("/global-css/interactions.css");
+@import url("/global-css/header.css");
+@import url("/global-css/footer.css");
 
 * {
   box-sizing: border-box;
@@ -15,64 +17,6 @@ body {
 
 main > *:not(hr) {
   padding: 0px 10px;
-}
-
-/* Header CSS copy for each page until allowed JS for a component based header */
-
-.site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 15px;
-  background-color: var(--background);
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: solid 1px var(--border);
-}
-
-.nav-links {
-  display: flex;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: var(--text);
-}
-
-.brand img {
-  width: 30px;
-  height: 30px;
-  display: block;
-}
-.menu-button {
-  display: none;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-  text-align: center;
-  color: var(--text);
-  border-radius: 0;
-  background-color: var(--background);
-  border-color: var(--primary);
-}
-
-.menu-button svg {
-  fill: currentColor;
-}
-
-@media (max-width: 600px) {
-  .nav-links {
-    display: none;
-  }
-
-  .menu-button {
-    display: block;
-  }
 }
 
 hr {
@@ -155,50 +99,11 @@ hr {
   margin-bottom: 1vh;
 }
 
-/* Footer Section */
-
-footer {
-  background-color: var(--text);
-  color: var(--surface);
-}
-
-.footer-nav {
-  display: inline-block;
-  background-color: var(--text);
-  color: var(--surface);
-  width: 27vw;
-  text-decoration: none;
-  border: solid 1px var(--surface);
-  padding: 10px 10px;
-  margin: 0 10px;
-  margin-bottom: 1vh;
-  text-align: center;
-}
-
-.footer-icon {
-  width: 1em;
-  height: 1em;
-  fill: currentColor;
-  transform: translateY(2px);
-}
-
 .indent-margin {
   margin-left: 2vw;
 }
 
 @media (min-width: 600px) {
-  /* Header */
-  header a {
-    text-decoration: none;
-    color: var(--text);
-    padding: 10px;
-    margin-left: 1vw;
-  }
-
-  .home-button {
-    border-bottom: solid 3px var(--primary);
-  }
-
   /* Hero */
   .hero {
     display: flex;
@@ -306,28 +211,5 @@ footer {
   .skills-tag {
     padding: 6px 10px;
     margin: 5px 5px 0 0;
-  }
-
-  /* Footer */
-  footer {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    gap: 15px;
-    flex-wrap: wrap;
-  }
-
-  footer nav {
-    margin-left: auto;
-  }
-
-  .footer-nav {
-    width: auto;
-    font-size: 20px;
-    text-align: center;
-  }
-
-  .footer-h2 {
-    margin: 0 10px;
   }
 }

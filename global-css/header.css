@@ -1,0 +1,71 @@
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 15px;
+  background-color: var(--background);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: solid 1px var(--border);
+}
+
+.nav-links {
+  display: flex;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.brand img {
+  display: block;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.menu-button {
+  display: none;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  text-align: center;
+  color: var(--text);
+  border-radius: 0;
+  background-color: var(--background);
+  border-color: var(--primary);
+}
+
+.menu-button svg {
+  fill: currentColor;
+}
+@media (max-width: 600px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+}
+
+@media (min-width: 600px) {
+  /* Header */
+  header a {
+    text-decoration: none;
+    color: var(--text);
+    padding: 10px;
+    margin-left: 1vw;
+  }
+
+  .home-button {
+    border-bottom: solid 3px var(--primary);
+  }
+}

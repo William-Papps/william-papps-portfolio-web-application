@@ -1,4 +1,5 @@
 @import url("/global-css/colours.css");
+@import url("/global-css/interactions.css");
 
 * {
   box-sizing: border-box;
@@ -46,7 +47,6 @@ main > *:not(hr) {
 .brand img {
   width: 30px;
   height: 30px;
-  display: block;
 }
 .menu-button {
   display: none;
@@ -106,12 +106,6 @@ hr {
   border: solid 1px var(--primary);
   padding: 10px 10px;
   margin: 0 10px;
-  margin-bottom: 1vh;
-}
-
-.profile-photo {
-  display: block;
-  width: 100%;
   margin-bottom: 1vh;
 }
 
@@ -187,6 +181,13 @@ img {
   margin-bottom: 1vh;
 }
 
+.project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background-color: var(--background);
+}
+
 /* Skills Section */
 
 .skills-tag {
@@ -197,8 +198,15 @@ img {
   border: solid 1px var(--border);
   border-color: transparent;
   border-radius: 6px;
-  padding: 1vh 2vw;
-  margin: 1vh 2vw;
+  padding: 4px 10px;
+  margin: 0;
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px 2vw;
 }
 
 .skills-card {
@@ -337,6 +345,8 @@ footer {
   }
 
   .project-card {
+    display: flex;
+    flex-direction: column;
     width: 30%;
   }
 
@@ -350,12 +360,13 @@ footer {
   }
 
   .project-card hr {
-    margin: 0 15px;
+    margin: auto 15px 0;
   }
 
   .view-project-card {
     padding: 8px 12px;
     margin: 10px 15px 15px;
+    align-self: flex-start;
   }
 
   /* Skills */
@@ -380,16 +391,6 @@ footer {
   }
 
   .indent-further {
-    margin-left: 2vw;
-  }
-
-  .skills-tag {
-    width: auto;
-    padding: 0 10px;
-    margin: 10px 10px 10px 0;
-  }
-
-  .skills-tag:first-of-type {
     margin-left: 2vw;
   }
 

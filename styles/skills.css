@@ -63,17 +63,24 @@ hr {
 
 /* Skills Section */
 .skills-tags {
-  padding: 1vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 2vw;
 }
+
 .skills-tag {
-  display: inline-block;
   background-color: var(--background);
-  color: var(--muted-text);
-  text-decoration: none;
+  color: var(--primary);
   border: solid 1px transparent;
-  padding: 6px 12px;
+  border-radius: 6px;
+  padding: 6px 10px;
   margin: 4px;
   font-size: 14px;
+  line-height: 1.4;
+  flex-grow: 1;
+  text-align: center;
 }
 
 .skills-card {
@@ -206,10 +213,5 @@ hr {
 
   .skills-card hr {
     margin: 0 0 10px;
-  }
-
-  .skills-tag {
-    padding: 6px 10px;
-    margin: 5px 5px 0 0;
   }
 }

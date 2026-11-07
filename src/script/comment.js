@@ -77,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileName = document.getElementById("profile-name");
   const onlineUsersList = document.getElementById("online-users-list");
   const typingIndicator = document.getElementById("typing-indicator");
-  const themeSwitcher = document.getElementById("theme-switcher");
 
   let typingTimeout;
 
@@ -1124,20 +1123,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   listenForTyping();
-
-  // Theme switcher logic
-  themeSwitcher.addEventListener("click", () => {
-    document.body.classList.toggle("dark-theme");
-    localStorage.setItem(
-      "theme",
-      document.body.classList.contains("dark-theme") ? "dark" : "light",
-    );
-  });
-
-  // Load saved theme
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-theme");
-  }
 
   // Load More Messages button
   const loadMoreBtn = document.getElementById("load-more-btn");

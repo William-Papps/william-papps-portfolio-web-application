@@ -579,6 +579,7 @@ document.addEventListener("DOMContentLoaded", () => {
       await retryOperation(
         async () => {
           return messagesRef.push({
+            uid: auth.currentUser.uid,
             user: auth.currentUser.displayName,
             message: message,
             timestamp: firebase.database.ServerValue.TIMESTAMP,
@@ -647,6 +648,25 @@ document.addEventListener("DOMContentLoaded", () => {
   function listenForMessages(currentUser) {
     const messagesRef = database.ref("messages");
     messagesRef.off("child_added");
+    messagesRef.off("child_changed");
+    messagesRef.off("child_removed");
+
+    messagesRef.on("child_changed", (snapshot) => {
+      const message = messagesDiv.querySelector(`[data-key="${snapshot.key}"]`);
+      const updatedMessage = createMessageElement(snapshot.key, snapshot.val());
+
+      if (message && updatedMessage) {
+        message.replaceWith(updatedMessage);
+      }
+    });
+
+    messagesRef.on("child_removed", (snapshot) => {
+      const message = messagesDiv.querySelector(`data-keys="${snapshot.key}"]`);
+
+      if (message) {
+        message.remove();
+      }
+    });
 
     // Load initial batch of messages (most recent)
     messagesRef
@@ -869,6 +889,60 @@ document.addEventListener("DOMContentLoaded", () => {
     messageElement.appendChild(strongUser);
     messageElement.appendChild(contentSpan);
     messageElement.appendChild(ts);
+
+    // Only show the editting option to comments written by the logged-in user
+    if (auth.currentUser && messageData.uid === auth.currentUser.uid) {
+      const editButton = document.createElement("button");
+      editButton.type = "button";
+      editButton.textContent = "Edit";
+      editButton.classList.add("button-secondary", "edit-button");
+
+      editButton.addEventListener("click", async () => {
+        const editedMessage = prompt("Edit your comment:", messageData.message);
+
+        if (editedMessage === null) return;
+
+        const message = editedMessage.trim();
+        const validation = validateMessage(message);
+
+        if (!validation.valid) {
+          alert(validation.error);
+          return;
+        }
+
+        try {
+          await database.ref(`messages/${messageKey}`).update({
+            message: message,
+          });
+
+          messageData.message = message;
+          contentSpan.textContent = ` ${message} `;
+        } catch (error) {
+          alert("Couldn't save the edit.");
+          console.error(error);
+        }
+      });
+
+      messageElement.appendChild(editButton);
+
+      const deleteButton = document.createElement("button");
+      deleteButton.type = "button";
+      deleteButton.textContent = "Delete";
+      deleteButton.classList.add("button-secondary", "delete-button");
+
+      deleteButton.addEventListener("click", async () => {
+        if (!confirm("Delete this comment?")) return;
+
+        try {
+          await database.ref(`messages/${messageKey}`).remove();
+        } catch (error) {
+          alert("Couldn't delete message.");
+          console.error(error);
+        }
+      });
+
+      messageElement.appendChild(deleteButton);
+    }
 
     // Add unread indicator if necessary
     if (

@@ -661,7 +661,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     messagesRef.on("child_removed", (snapshot) => {
-      const message = messagesDiv.querySelector(`data-key="${snapshot.key}"]`);
+      const message = messagesDiv.querySelector(`[data-key="${snapshot.key}"]`);
 
       if (message) {
         message.remove();

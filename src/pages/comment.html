@@ -8,9 +8,9 @@
       content="
         default-src 'self';
         script-src 'self' 'unsafe-eval' https://www.gstatic.com https://gstatic.com https://*.firebaseapp.com https://*.googleapis.com https://accounts.google.com https://apis.google.com;
-        script-src-elem 'self' 'unsafe-eval' https://www.gstatic.com https://gstatic.com https://*.firebaseapp.com https://*.googleapis.com https://accounts.google.com https://apis.google.com https://portfolio-web-applicatio-28b76-default-rtdb.asia-southeast1.firebasedatabase.app;
+        script-src-elem 'self' 'unsafe-eval' https://www.gstatic.com https://gstatic.com https://*.firebaseapp.com https://*.googleapis.com https://accounts.google.com https://apis.google.com https://*.firebasedatabase.app;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-        connect-src 'self' https://www.gstatic.com https://gstatic.com https://*.firebaseio.com https://*.googleapis.com https://*.firebaseapp.com wss://*.firebaseio.com https://accounts.google.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://portfolio-web-applicatio-28b76-default-rtdb.asia-southeast1.firebasedatabase.app wss://portfolio-web-applicatio-28b76-default-rtdb.asia-southeast1.firebasedatabase.app;
+        connect-src 'self' https://www.gstatic.com https://gstatic.com https://*.firebaseio.com https://*.googleapis.com https://*.firebaseapp.com wss://*.firebaseio.com https://accounts.google.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://*.firebasedatabase.app wss://*.firebasedatabase.app;
         img-src 'self' https: data:;
         font-src 'self' data: https://fonts.gstatic.com;
         frame-src https://*.firebaseapp.com https://accounts.google.com https://*.google.com;
@@ -18,6 +18,8 @@
     />
     <title>Chat Web App</title>
     <link rel="stylesheet" href="/styles/comment.css" />
+    <link rel="stylesheet" href="/styles/global-css/header.css" />
+    <link rel="stylesheet" href="/styles/global-css/footer.css" />
 
     <!-- Firebase SDK setup -->
     <script
@@ -34,6 +36,7 @@
     ></script>
   </head>
   <body>
+    <div id="header"></div>
     <div id="loading-page" class="container">
       <h2>Loading, please wait...</h2>
     </div>
@@ -85,5 +88,7 @@
 
     <!-- Load JavaScript containing chat logic -->
     <script type="module" src="/script/comment.js"></script>
+    <div id="footer"></div>
+    <script src="/script/layout.js"></script>
   </body>
 </html>

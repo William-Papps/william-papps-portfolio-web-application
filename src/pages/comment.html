@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        script-src 'self' 'unsafe-eval' https://www.gstatic.com https://gstatic.com https://*.firebaseapp.com https://*.googleapis.com https://accounts.google.com https://apis.google.com;
+        script-src-elem 'self' 'unsafe-eval' https://www.gstatic.com https://gstatic.com https://*.firebaseapp.com https://*.googleapis.com https://accounts.google.com https://apis.google.com https://portfolio-web-applicatio-28b76-default-rtdb.asia-southeast1.firebasedatabase.app;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        connect-src 'self' https://www.gstatic.com https://gstatic.com https://*.firebaseio.com https://*.googleapis.com https://*.firebaseapp.com wss://*.firebaseio.com https://accounts.google.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://portfolio-web-applicatio-28b76-default-rtdb.asia-southeast1.firebasedatabase.app wss://portfolio-web-applicatio-28b76-default-rtdb.asia-southeast1.firebasedatabase.app;
+        img-src 'self' https: data:;
+        font-src 'self' data: https://fonts.gstatic.com;
+        frame-src https://*.firebaseapp.com https://accounts.google.com https://*.google.com;
+    "
+    />
+    <title>Chat Web App</title>
+    <link rel="stylesheet" href="/styles/comment.css" />
+
+    <!-- Firebase SDK setup -->
+    <script
+      src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js"
+      defer
+    ></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/11.0.1/firebase-auth-compat.js"
+      defer
+    ></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/11.0.1/firebase-database-compat.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div id="loading-page" class="container">
+      <h2>Loading, please wait...</h2>
+    </div>
+
+    <div id="login-page" class="container hidden">
+      <h2>Welcome to Chat</h2>
+      <button id="login-button" class="button-primary">
+        Login with Google
+      </button>
+    </div>
+
+    <div id="chat-page" class="container hidden">
+      <div id="profile-info">
+        <img id="profile-icon" class="profile-icon" src="" alt="Profile Icon" />
+        <span id="profile-name"></span>
+        <button id="logout-button" class="button-secondary">Logout</button>
+      </div>
+      <button id="theme-switcher" class="button-secondary">Toggle Theme</button>
+
+      <h2>Online Users</h2>
+      <div id="online-users-list" class="online-users"></div>
+      <div id="typing-indicator" class="typing-indicator hidden">
+        Someone is typing...
+      </div>
+
+      <h2>Chat Room</h2>
+      <div id="messages" class="messages">
+        <div id="load-more-container" class="load-more-container hidden">
+          <button id="load-more-btn" class="button-secondary">
+            Load More Messages (20)
+          </button>
+        </div>
+      </div>
+      <div id="error-message" class="error-message hidden"></div>
+      <div id="message-input-container">
+        <input
+          type="text"
+          id="message-input"
+          placeholder="Type a message"
+          maxlength="1000"
+        />
+        <span id="char-counter" class="char-counter">0/1000</span>
+        <button id="send-button" class="button-primary">Send</button>
+      </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- Load JavaScript containing chat logic -->
+    <script type="module" src="/script/comment.js"></script>
+  </body>
+</html>

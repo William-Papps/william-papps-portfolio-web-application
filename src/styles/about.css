@@ -1,7 +1,7 @@
-@import url("/global-css/colours.css");
-@import url("/global-css/interactions.css");
-@import url("/global-css/header.css");
-@import url("/global-css/footer.css");
+@import url("/styles/global-css/colours.css");
+@import url("/styles/global-css/interactions.css");
+@import url("/styles/global-css/header.css");
+@import url("/styles/global-css/footer.css");
 
 * {
   box-sizing: border-box;
